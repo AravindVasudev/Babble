@@ -5,27 +5,29 @@
  */
 
 const app   = require('../app');
-const debug = require('debug')('express-mvc-h5bp:server');
+const debug = require('debug')('babble:server');
 const http  = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-let port = normalizePort(process.env.PORT || '3000');
+let port    = normalizePort(process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || '3000');
+let address = process.env.OPENSHIFT_NODEJS_IP || process.env.ADDRESS || '127.0.0.1';
+
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-let server = http.createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, address);
 server.on('error', onError);
 server.on('listening', onListening);
 
