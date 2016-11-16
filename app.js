@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const session      = require('express-session');
 const mongoose     = require('mongoose');
+const passport     = require('passport');
+const flash        = require('connect-flash');
 
 //Routes
 const routes = require('./routes/index');
@@ -40,6 +42,12 @@ app.use(session({
   resave: true
 }));
 
+//Passport Init
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Connect flash
+app.use(flash());
 
 //Static Directories
 app.use(express.static(path.join(__dirname, 'public')));
