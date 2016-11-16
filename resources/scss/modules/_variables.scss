@@ -2,6 +2,31 @@
 $default-color: #222;
 $default-font-size: 1em;
 $default-line-height: 1.4;
-$default-selection-color: #b3d4fc;
+$default-selection-bg: rgba(69, 69, 69, 1);
+$default-selection-color: rgba(255, 255, 255, 1);
 
-//Custom
+/*
+*
+* Custom CSS
+*
+*/
+
+// Font Stack
+$oswald: 'Oswald', sans-serif;
+
+//Color Palette
+$background: rgba(255, 255, 255, 1);
+$primaryDark: rgba(57, 57, 57, 1);
+$primary: rgba(69, 69, 69, 1);
+$highlight: rgba(39, 174, 96, 1);
+$highlightBackground: rgba(247, 220, 111, 1);
+
+//Facebook Button
+$fb-text-color: rgba(255, 255, 255, 1);
+$fb-font-size: 20px;
+$fb-background-color: #354f88;
+$fb-background-color-hover: #2F477A;
+$fb-background-color-active: #2A3F6C;
+
+$fb-button-height: 44px;
+$fb-button-width: 256px;

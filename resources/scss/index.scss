@@ -1,6 +1,20 @@
 //Base
 @import './modules/base';
 
+//Facebook Button
+@import './modules/facebook';
+
 body {
-  margin-left: 100px;
+  background: $highlightBackground;
+}
+
+img.logo {
+  display: block;
+  margin: auto;
+  margin-top: 50px;
+}
+
+a.facebook {
+  margin: auto;
+  margin-top: 50px;
 }

@@ -13,7 +13,8 @@ const auth = require('../config/auth.js');
 passport.use(new FacebookStrategy({
     clientID: auth.facebook.clientID,
     clientSecret: auth.facebook.clientSecret,
-    callbackURL: auth.facebook.callbackURL
+    callbackURL: auth.facebook.callbackURL,
+    profileFields: ['id', 'emails', 'displayName', 'picture.type(large)']
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(() => {
@@ -23,12 +24,13 @@ passport.use(new FacebookStrategy({
         if(user)
           return done(null, user);
         else {
+          console.log(profile);
           let newUser         = new User();
           newUser.id          = profile.id;
           newUser.token       = accessToken;
           newUser.displayName = profile.displayName;
-          //newUser.email       = profile.emails[0].value;
-          //newUser.photo       = profile.photos[0].value;
+          newUser.email       = profile.emails[0].value;
+          newUser.photo       = profile.photos[0].value;
 
           newUser.save((err) => {
             if(err) throw err;
@@ -51,13 +53,13 @@ passport.deserializeUser((id, done) => {
 });
 
 /* GET home page. */
-router.get('/', (req, res) => {
+router.get('/', AuthenticatedRedirect, (req, res) => {
   let file = 'index';
   res.render(file, {
     meta: {
-      title: 'Express MVC H5BP',
-      description: 'A simple boilerplate',
-      keywords: 'Express, MVC, html5, boilerplate',
+      title: 'Babble all time!',
+      description: 'Babble is a simple to use chat app that let\'s you to have fun with your friends',
+      keywords: 'chat, app, babble, instant, messaging',
       file: file
     },
     title: 'Express MVC H5BP'
@@ -80,7 +82,8 @@ router.get('/chat', ensureAuthenticated, (req, res) => {
       description: 'A simple boilerplate',
       keywords: 'Express, MVC, html5, boilerplate',
       file: file
-    }
+    },
+    user: req.user
   });
 });
 
@@ -95,6 +98,15 @@ function ensureAuthenticated(req, res, next) {
   }
   else {
     res.redirect('/');
+  }
+}
+
+function AuthenticatedRedirect(req, res, next) {
+  if(req.isAuthenticated()) {
+    res.redirect('/chat');
+  }
+  else {
+    next();
   }
 }
 

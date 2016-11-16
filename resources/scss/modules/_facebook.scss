@@ -1,0 +1,30 @@
+.facebook {
+    display: block;
+    text-align: center;
+    padding-top: 9px;
+    padding-right: 45px;
+
+    height: $fb-button-height;
+	width: $fb-button-width;
+    color: $fb-text-color;
+    font-family: $oswald;
+    font-size: $fb-font-size;
+
+    background-color: $fb-background-color;
+    background-image: url('../img/facebook-icon.png');
+    background-size: $fb-button-height $fb-button-height;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+a.facebook:link, a.facebook:visited, a.facebook:hover, a.facebook:active {
+    text-decoration: none;
+    color: $fb-text-color;
+}
+a.facebook:hover {
+    background-color: $fb-background-color-hover;
+}
+
+a.facebook:active {
+    background-color: $fb-background-color-active;
+}
