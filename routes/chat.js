@@ -8,9 +8,8 @@ const User = require('../models/user.js');
 //Passport Config
 const auth = require('../config/passport');
 
-/* GET home page. */
-router.get('/', auth.AuthenticatedRedirect, (req, res) => {
-  let file = 'index';
+router.get('/', auth.ensureAuthenticated, (req, res) => {
+  let file = 'chat';
   res.render(file, {
     meta: {
       title: 'Babble all time!',
@@ -18,21 +17,8 @@ router.get('/', auth.AuthenticatedRedirect, (req, res) => {
       keywords: 'chat, app, babble, instant, messaging',
       file: file
     },
-    title: 'Express MVC H5BP'
+    user: req.user
   });
-});
-
-//Redirects to Facebook
-router.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
-
-//Facebook's callback
-router.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: '/chat',
-                                      failureRedirect: '/' }));
-
-router.get('/auth/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
 });
 
 module.exports = router;

@@ -11,6 +11,7 @@ const flash        = require('connect-flash');
 
 //Routes
 const routes = require('./routes/index');
+const chat   = require('./routes/chat');
 
 //Configs
 const DBConfig = require('./config/database.js');
@@ -49,11 +50,15 @@ app.use(passport.session());
 //Connect flash
 app.use(flash());
 
+//Passport Config
+require('./config/passport');
+
 //Static Directories
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Init Routes
 app.use('/', routes);
+app.use('/chat', chat);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
