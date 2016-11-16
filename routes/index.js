@@ -29,8 +29,8 @@ passport.use(new FacebookStrategy({
           newUser.id          = profile.id;
           newUser.token       = accessToken;
           newUser.displayName = profile.displayName;
-          newUser.email       = profile.emails[0].value;
-          newUser.photo       = profile.photos[0].value;
+          newUser.email       = profile.emails ? profile.emails[0].value : '';
+          newUser.photo       = profile.photos ? profile.photos[0].value : '/img/default-avatar.jpg'
 
           newUser.save((err) => {
             if(err) throw err;
