@@ -1,27 +1,37 @@
-const express      = require('express');
-const path         = require('path');
-const favicon      = require('serve-favicon');
-const logger       = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser   = require('body-parser');
-const session      = require('express-session');
-const mongoose     = require('mongoose');
-const passport     = require('passport');
-const flash        = require('connect-flash');
-
-//Routes
-const routes = require('./routes/index');
-const chat   = require('./routes/chat');
-
-//Configs
-const DBConfig = require('./config/database.js');
+const express          = require('express');
+const path             = require('path');
+const favicon          = require('serve-favicon');
+const logger           = require('morgan');
+const cookieParser     = require('cookie-parser');
+const bodyParser       = require('body-parser');
+const session          = require('express-session');
+const MongoStore       = require('connect-mongo')(session);
+const mongoose         = require('mongoose');
+const passport         = require('passport');
+const flash            = require('connect-flash');
+const socket_io        = require( "socket.io" );
+const passportSocketIo = require('passport.socketio');
 
 //Init App
 const app = express();
 
+// Socket.io
+let io = socket_io();
+app.io = io;
+
+//Routes
+const routes = require('./routes/index');
+const chat   = require('./routes/chat')(io);
+
+//Configs
+const DBConfig = require('./config/database.js');
+
 //Mongoose Setup
 mongoose.connect(DBConfig.url);
 mongoose.Promise = global.Promise;
+
+//Session Store
+const sessionStore = new MongoStore({ mongooseConnection: mongoose.connection });
 
 // View Engine Setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,7 +50,8 @@ app.use(cookieParser());
 app.use(session({
   secret: 'shamballa',
   saveUninitialized: true,
-  resave: true
+  resave: true,
+  store: sessionStore
 }));
 
 //Passport Init
@@ -52,6 +63,15 @@ app.use(flash());
 
 //Passport Config
 require('./config/passport');
+
+//Passport Socket.io Middleware
+io.use(passportSocketIo.authorize({
+  key: 'connect.sid',
+  secret: 'shamballa',
+  store: sessionStore,
+  passport: passport,
+  cookieParser: cookieParser
+}));
 
 //Static Directories
 app.use(express.static(path.join(__dirname, 'public')));

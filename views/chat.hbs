@@ -1,8 +1,19 @@
-<div class="container">
-  <h1>LOGGED IN</h1>
-  displayName: {{user.displayName}} <br />
-  email: {{user.email}} <br />
-  <img src="{{user.photo}}" alt="display Picture" /> <br /><br />
-
+<ul id="messages"></ul>
+<form action="">
+  <input id="m" autocomplete="off" /><button>Send</button>
   <a href="/auth/logout" class="btn btn-default">Logout</a>
-</div>
+</form>
+
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script>
+  var socket = io();
+  $('form').submit(function(){
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  });
+  socket.on('chat message', function(msg){
+    $('#messages').append($('<li>').html(msg));
+  });
+
+</script>

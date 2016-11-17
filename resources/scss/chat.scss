@@ -1,0 +1,51 @@
+//Base
+@import './modules/base';
+
+body {
+  font: $oswald;
+}
+
+form {
+  background: $primary;
+  padding: 3px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+form input {
+  border: 0;
+  padding: 10px;
+  width: 80%;
+  margin-right: .5%;
+}
+form button {
+  width: 9%;
+  background: $highlightBackground;
+  border: none;
+  padding: 10px;
+  height: 100%;
+}
+
+form a {
+  width: 9%;
+  background: $highlight;
+  border: none;
+  padding: 10px;
+  border-radius: 0 !important;
+  height: 100%;
+}
+
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#messages li {
+  padding: 5px 10px;
+}
+
+#messages li:nth-child(odd) {
+  background: #eee;
+}
