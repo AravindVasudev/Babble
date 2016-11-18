@@ -19,6 +19,18 @@ socket.on('chat message', function(msg){
   $(".messages").scrollTop($(".messages").children().height());
 });
 
+socket.on('join', function(msg){
+  let message = `<div class="message-bot"><kbd>${msg.user} has joined</kbd></div>`;
+  $('#messages').append(message);
+  $(".messages").scrollTop($(".messages").children().height());
+});
+
+socket.on('leave', function(msg){
+  let message = `<div class="message-bot"><kbd>${msg.user} has left</kbd></div>`;
+  $('#messages').append(message);
+  $(".messages").scrollTop($(".messages").children().height());
+});
+
 
 function formatAMPM(date) {
   var hours = date.getHours();

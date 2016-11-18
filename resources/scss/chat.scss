@@ -221,6 +221,15 @@ justify-content: center;
   }
 }
 
+.message-bot {
+  display: inline-block;
+  flex: 1;
+  align-self: center;
+
+  kbd {
+  }
+}
+
 .time {
   font-size: 0.6em;
   color: #BDBDBD;
@@ -308,5 +317,10 @@ justify-content: center;
 
   .sender {
     padding-bottom: 5px !important;
+  }
+
+  .message-bot {
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }

@@ -24,13 +24,16 @@ module.exports = (io) => {
   });
 
   io.on('connection', function(socket){
+    io.emit('join', { user: socket.request.user.displayName });
     socket.on('chat message', function(msg){
       if(!!msg) {
 
-        io.emit('chat message', {id: socket.request.user.id,name: socket.request.user.displayName, msg: msg});
+        io.emit('chat message', {id: socket.request.user.id, name: socket.request.user.displayName, msg: msg});
       }
     });
-    socket.on('disconnect', function () { socket.disconnect(); })
+    socket.on('disconnect', function () {
+      io.emit('leave', { user: socket.request.user.displayName });
+    });
   });
 
 
