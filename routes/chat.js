@@ -25,8 +25,10 @@ module.exports = (io) => {
 
   io.on('connection', function(socket){
     socket.on('chat message', function(msg){
-      let ret = `<img src="${socket.request.user.photo}" height="20">${socket.request.user.displayName}: ${msg}`
-      io.emit('chat message', ret);
+      if(!!msg) {
+
+        io.emit('chat message', {id: socket.request.user.id,name: socket.request.user.displayName, msg: msg});
+      }
     });
     socket.on('disconnect', function () { socket.disconnect(); })
   });

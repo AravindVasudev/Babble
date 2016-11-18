@@ -2,7 +2,7 @@
 $default-color: #222;
 $default-font-size: 1em;
 $default-line-height: 1.4;
-$default-selection-bg: rgba(69, 69, 69, 1);
+$default-selection-bg: #81C784;
 $default-selection-color: rgba(255, 255, 255, 1);
 
 /*
@@ -12,14 +12,15 @@ $default-selection-color: rgba(255, 255, 255, 1);
 */
 
 // Font Stack
+$droid-sans: 'Droid Sans', sans-serif;
 $oswald: 'Oswald', sans-serif;
 
 //Color Palette
 $background: rgba(255, 255, 255, 1);
-$primaryDark: rgba(57, 57, 57, 1);
+$primaryDark: #313638;
 $primary: rgba(69, 69, 69, 1);
-$highlight: rgba(39, 174, 96, 1);
-$highlightBackground: rgba(247, 220, 111, 1);
+$highlight: #81C784;
+$highlightBackground: #EDF0DA;
 
 //Facebook Button
 $fb-text-color: rgba(255, 255, 255, 1);

@@ -2,50 +2,311 @@
 @import './modules/base';
 
 body {
-  font: $oswald;
-}
-
-form {
-  background: $primary;
-  padding: 3px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-form input {
-  border: 0;
-  padding: 10px;
-  width: 80%;
-  margin-right: .5%;
-}
-form button {
-  width: 9%;
   background: $highlightBackground;
-  border: none;
-  padding: 10px;
-  height: 100%;
+  font-family: $droid-sans;
 }
 
-form a {
-  width: 9%;
-  background: $highlight;
-  border: none;
-  padding: 10px;
-  border-radius: 0 !important;
-  height: 100%;
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
 }
 
-#messages {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
 }
 
-#messages li {
-  padding: 5px 10px;
+.app-container {
+  //Size
+  height: 90vh;
+  width: 80vw;
+  // overflow: hidden;
+
+  //Alignment
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  //Design
+  background: $background;
+
+  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  //header
+  .app-header {
+    //Size
+    height: 10%;
+    width: 100%;
+
+    //Design
+    background: $highlight;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  //  border-bottom: 1px solid #9E9E9E;
+
+  display: flex;
+flex-direction: column;
+justify-content: center;
+    .app-header-content {
+
+      h1 {
+        display: inline-block;
+        padding-left: 2%;
+        font-size: 2em;
+        color: white;
+        font-family: $oswald;
+        text-shadow: rgb(224, 224, 224) 1px 1px 0px;
+      }
+
+      .menu-button {
+        padding-left: 2%;
+      }
+    }
+  }
+
+  .app-body {
+    height: 90%;
+    main {
+      //size
+      height: 100%;
+
+      //Design
+      background: url('../img/bg.png');
+
+      .messages {
+        //Size
+        height: 90%;
+        width: 100%;
+
+        //Design
+        // background-color: white;
+        padding: 20px 60px;
+        overflow-y: scroll;
+
+        #messages {
+          margin: 0;
+          // list-style-type: none;
+
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: flex-end;
+          overflow: none;
+        }
+      }
+
+      .sender {
+        //Size
+        height: 10%;
+
+        //Design
+        background-color: #f5f1ee;
+
+        padding: 10px;
+
+        //Alignment
+        text-align: center;
+
+
+        #type-message {
+          border: 0;
+          width: 90%;
+          height: 3em;
+          border-radius: 5px;
+          // border-top-right-radius: 0;
+          padding-left: 15px;
+          word-wrap: break-word;
+          flex: 8;
+          align-self: flex-start;
+        }
+
+        .send-button {
+          border: 0;
+          background-color: transparent;
+          color: $primaryDark;
+          font-size: 1.6em;
+          flex: 1;
+          align-self: flex-end;
+        }
+
+        #type-message:focus, .send-button:focus {
+          outline: 0;
+        }
+      }
+
+      .sender > form {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        overflow: none;
+      }
+    }
+
+    aside {
+      //size
+      height: 100%;
+      background-color: #ebebeb;
+
+      .logout-button {
+        position: absolute;
+        bottom: 0;
+        border-radius: 0;
+        width: 100%;
+        font-family: $oswald;
+        background-color: $highlight;
+        border: 0;
+        color: white;
+        font-size: 1.7em;
+        height: 8%;
+      }
+
+      .logout-button:hover {
+        background-color: #239c56;
+      }
+
+      .logout-button:active {
+        background-color: #1f8b4c;
+      }
+    }
+  }
+
 }
 
-#messages li:nth-child(odd) {
-  background: #eee;
+
+
+
+//Message
+.message {
+  display: inline-block;
+  padding: 5px 15px;
+  background-color: white;
+  border-radius: 10px;
+  min-width: 10em;
+  max-width: 50%;
+
+  flex: 1;
+  align-self: flex-start;
+
+  margin: 1px 0;
+  .username {
+    font-size: 0.8em;
+    display: block;
+  }
+
+  .msg {
+    word-wrap: break-word;
+    display: block;
+  }
+}
+
+.message-me {
+  display: inline-block;
+  padding: 5px 15px;
+  background-color: #dcf8c6;
+  border-radius: 10px;
+  min-width: 10em;
+  max-width: 50%;
+  position: relative;
+
+  flex: 1;
+  align-self: flex-end;
+
+  margin: 2px 0;
+
+  .msg {
+    word-wrap: break-word;
+    display: block;
+  }
+}
+
+.time {
+  font-size: 0.6em;
+  color: #BDBDBD;
+}
+
+
+.menu-button {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+.dropdown {
+  display: inline;
+
+  .dropdown-menu {
+    border-radius: 0;
+
+    li > a {
+      padding: 10px 20px;
+    }
+
+    li > a:hover {
+      background-color: $highlight;
+      color: white;
+    }
+  }
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: #f5f1ee;
+  }
+
+  .app-container {
+    //size
+    height: 100vh;
+    width: 100vw;
+  }
+
+  //Send Button
+  .send-button {
+    border-radius: 50%;
+    background-color: $highlightBackground;
+  }
+
+  .messages {
+    padding: 10px !important;
+    // margin: 0;
+  }
+
+  .sender, #type-message {
+    padding: .5em !important;
+    height: 2em;
+  }
+
+  .sender {
+    padding-bottom: 5px !important;
+  }
 }
