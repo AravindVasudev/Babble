@@ -43,6 +43,9 @@ socket.on('leave', function(msg){
   $(".messages").scrollTop($(".messages").children().height());
 });
 
+socket.on('userList', function(msg){
+  console.log(msg);
+});
 
 $(function() {
   // $('.menu-button').click(function() {

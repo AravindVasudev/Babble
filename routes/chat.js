@@ -33,6 +33,7 @@ module.exports = (io) => {
 
   io.on('connection', function(socket){
     io.emit('join', { id: socket.request.user.id, user: socket.request.user.displayName });
+
     socket.on('chat message', function(msg){
       if(!!msg) {
         let message = {id: socket.request.user.id, name: socket.request.user.displayName, msg: msg, time: formatAMPM(new Date())};
@@ -45,6 +46,7 @@ module.exports = (io) => {
 
           history.history.push(message);
           history = JSON.stringify(history);
+
 
           fs.writeFile('./models/history.json', history, (err) => {
             if(err) throw err;
