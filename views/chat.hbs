@@ -13,6 +13,10 @@
         </div>
 
         <ul class="dropdown-menu">
+          <li>
+            <input type="file" name="file" id="file" class="visuallyhidden" accept="image/*">
+            <label for="file">UPLOAD PIC</label>
+          </li>
           <li><a href="https://github.com/AravindVasudev/Babble.gq" target="_blank">FORK ME</a></li>
           <li><a href="/auth/logout">LOGOUT</a></li>
         </ul>
@@ -30,18 +34,28 @@
           {{#each history}}
             {{#areEqual id ../user.id }}
               <div class="message-me">
-                <span class="msg">{{{msg}}}</span>
+                {{#if msg}}
+                  <span class="msg">{{{msg}}}</span>
+                {{/if}}
+                {{#if image}}
+                  <span class="image"><img src="{{{image}}}" class="img-responsive"></span>
+                {{/if}}
                 <span class="time noselect">{{time}}</span>
               </div>
             {{else}}
             <div class="message">
               <span class="username noselect">{{name}}</span>
-              <span class="msg">{{{msg}}}</span>
+              {{#if msg}}
+                <span class="msg">{{{msg}}}</span>
+              {{/if}}
+              {{#if image}}
+                <span class="image"><img src="{{{image}}}" class="img-responsive"></span>
+              {{/if}}
               <span class="time noselect">{{time}}</span>
             </div>
             {{/areEqual}}
           {{/each}}
-
+<!-- <img src="" height="200" alt="Image preview..." id="test"> -->
         </div>
       </div>
       <div class="sender noselect">
@@ -256,5 +270,3 @@
     </aside>
   </div>
 </div>
-
-<!-- <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2.2"></script> -->

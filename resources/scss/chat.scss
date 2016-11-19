@@ -219,6 +219,10 @@ justify-content: center;
     word-wrap: break-word;
     display: block;
   }
+
+  .img {
+    // height: 10%;
+  }
 }
 
 .message-bot {
@@ -266,12 +270,17 @@ justify-content: center;
 
   .dropdown-menu {
     border-radius: 0;
-
-    li > a {
+    li > label {
+      display: inline-block;
+      width: 100%;
+      font-weight: normal;
+      cursor: pointer;
+    }
+    li > a, li > label {
       padding: 10px 20px;
     }
 
-    li > a:hover {
+    li > a:hover, li > label:hover {
       background-color: $highlight;
       color: white;
     }
@@ -305,6 +314,12 @@ justify-content: center;
 .memoji {
   font-size: 4em;
 }
+
+.image > img { cursor:zoom-in; }
+.image > img:-webkit-full-screen { cursor:zoom-out; }
+.image > img:-moz-full-screen { cursor:zoom-out; }
+.image > img:-ms-fullscreen { cursor:zoom-out; }
+.image > img:fullscreen { cursor:zoom-out; }
 
 @media only screen and (max-width: 768px) {
   body {
