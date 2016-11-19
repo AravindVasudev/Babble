@@ -19,7 +19,7 @@
       </div>
 
 
-      <h1>GLOBAL CHATROOM</h1>
+      <h1>babble chat</h1>
     </div>
   </header>
   <div class="row no-gutter app-body">
@@ -30,13 +30,13 @@
           {{#each history}}
             {{#areEqual id ../user.id }}
               <div class="message-me">
-                <span class="msg">{{msg}}</span>
+                <span class="msg">{{{msg}}}</span>
                 <span class="time noselect">{{time}}</span>
               </div>
             {{else}}
             <div class="message">
               <span class="username noselect">{{name}}</span>
-              <span class="msg">{{msg}}</span>
+              <span class="msg">{{{msg}}}</span>
               <span class="time noselect">{{time}}</span>
             </div>
             {{/areEqual}}
@@ -52,6 +52,209 @@
       </div>
     </main>
     <aside class="col-md-3 hidden-xs hidden-sm noselect">
+      <div class="emoji-tray">
+        <span class="emoji">😀</span>
+        <span class="emoji">😬</span>
+        <span class="emoji">😁</span>
+        <span class="emoji">😂</span>
+        <span class="emoji">😃</span>
+        <span class="emoji">😄</span>
+        <span class="emoji">😅</span>
+        <span class="emoji">😆</span>
+        <span class="emoji">😇</span>
+        <span class="emoji">😉</span>
+        <span class="emoji">😊</span>
+        <span class="emoji">🙂</span>
+        <span class="emoji">🙃</span>
+        <span class="emoji">😋</span>
+        <span class="emoji">😌</span>
+        <span class="emoji">😍</span>
+        <span class="emoji">😘</span>
+        <span class="emoji">😗</span>
+        <span class="emoji">😙</span>
+        <span class="emoji">😚</span>
+        <span class="emoji">😜</span>
+        <span class="emoji">😝</span>
+        <span class="emoji">😛</span>
+        <span class="emoji">🤑</span>
+        <span class="emoji">🤓</span>
+        <span class="emoji">😎</span>
+        <span class="emoji">🤗</span>
+        <span class="emoji">😏</span>
+        <span class="emoji">😶</span>
+        <span class="emoji">😐</span>
+        <span class="emoji">😑</span>
+        <span class="emoji">😒</span>
+        <span class="emoji">🙄</span>
+        <span class="emoji">🤔</span>
+        <span class="emoji">😳</span>
+        <span class="emoji">😞</span>
+        <span class="emoji">😟</span>
+        <span class="emoji">😠</span>
+        <span class="emoji">😡</span>
+        <span class="emoji">😔</span>
+        <span class="emoji">😕</span>
+        <span class="emoji">🙁</span>
+        <span class="emoji">☹️</span>
+        <span class="emoji">😣</span>
+        <span class="emoji">😖</span>
+        <span class="emoji">😫</span>
+        <span class="emoji">😩</span>
+        <span class="emoji">😤</span>
+        <span class="emoji">😮</span>
+        <span class="emoji">😱</span>
+        <span class="emoji">😨</span>
+        <span class="emoji">😰</span>
+        <span class="emoji">😯</span>
+        <span class="emoji">😦</span>
+        <span class="emoji">😧</span>
+        <span class="emoji">😢</span>
+        <span class="emoji">😥</span>
+        <span class="emoji">😪</span>
+        <span class="emoji">😓</span>
+        <span class="emoji">😭</span>
+        <span class="emoji">😵</span>
+        <span class="emoji">😲</span>
+        <span class="emoji">🤐</span>
+        <span class="emoji">😷</span>
+        <span class="emoji">🤒</span>
+        <span class="emoji">🤕</span>
+        <span class="emoji">😴</span>
+        <span class="emoji">💤</span>
+        <span class="emoji">💩</span>
+        <span class="emoji">😈</span>
+        <span class="emoji">👿</span>
+        <span class="emoji">👹</span>
+        <span class="emoji">👺</span>
+        <span class="emoji">💀</span>
+        <span class="emoji">👻</span>
+        <span class="emoji">👽</span>
+        <span class="emoji">🤖</span>
+        <span class="emoji">😺</span>
+        <span class="emoji">😸</span>
+        <span class="emoji">😹</span>
+        <span class="emoji">😻</span>
+        <span class="emoji">😼</span>
+        <span class="emoji">😽</span>
+        <span class="emoji">🙀</span>
+        <span class="emoji">😿</span>
+        <span class="emoji">😾</span>
+        <span class="emoji">🙌</span>
+        <span class="emoji">👏</span>
+        <span class="emoji">👋</span>
+        <span class="emoji">👍</span>
+        <span class="emoji">👊</span>
+        <span class="emoji">✊</span>
+        <span class="emoji">✌️</span>
+        <span class="emoji">👌</span>
+        <span class="emoji">✋</span>
+        <span class="emoji">💪</span>
+        <span class="emoji">🙏</span>
+        <span class="emoji">☝️</span>
+        <span class="emoji">👆</span>
+        <span class="emoji">👇</span>
+        <span class="emoji">👈</span>
+        <span class="emoji">👉</span>
+        <span class="emoji">🖕</span>
+        <span class="emoji">🤘</span>
+        <span class="emoji">🖖</span>
+        <span class="emoji">✍️</span>
+        <span class="emoji">💅</span>
+        <span class="emoji">👄</span>
+        <span class="emoji">👅</span>
+        <span class="emoji">👂</span>
+        <span class="emoji">👃</span>
+        <span class="emoji">👁</span>
+        <span class="emoji">👀</span>
+        <span class="emoji">👤</span>
+        <span class="emoji">🗣</span>
+        <span class="emoji">👶</span>
+        <span class="emoji">👦</span>
+        <span class="emoji">👧</span>
+        <span class="emoji">👨</span>
+        <span class="emoji">👩</span>
+        <span class="emoji">👱</span>
+        <span class="emoji">👴</span>
+        <span class="emoji">👵</span>
+        <span class="emoji">👲</span>
+        <span class="emoji">👳</span>
+        <span class="emoji">👮</span>
+        <span class="emoji">👷</span>
+        <span class="emoji">💂</span>
+        <span class="emoji">🕵</span>
+        <span class="emoji">🎅</span>
+        <span class="emoji">👼</span>
+        <span class="emoji">👸</span>
+        <span class="emoji">👰</span>
+        <span class="emoji">🚶</span>
+        <span class="emoji">🏃</span>
+        <span class="emoji">💃</span>
+        <span class="emoji">👯</span>
+        <span class="emoji">👫</span>
+        <span class="emoji">👬</span>
+        <span class="emoji">👭</span>
+        <span class="emoji">🙇</span>
+        <span class="emoji">💁</span>
+        <span class="emoji">🙅</span>
+        <span class="emoji">🙆</span>
+        <span class="emoji">🙋</span>
+        <span class="emoji">🙎</span>
+        <span class="emoji">🙍</span>
+        <span class="emoji">💇</span>
+        <span class="emoji">💆</span>
+        <span class="emoji">💑</span>
+        <span class="emoji">👩‍❤️‍👩</span>
+        <span class="emoji">👨‍❤️‍👨</span>
+        <span class="emoji">💏</span>
+        <span class="emoji">👩‍❤️‍💋‍👩</span>
+        <span class="emoji">👨‍❤️‍💋‍👨</span>
+        <span class="emoji">👪</span>
+        <span class="emoji">👨‍👩‍👧</span>
+        <span class="emoji">👨‍👩‍👧‍👦</span>
+        <span class="emoji">👨‍👩‍👦‍👦</span>
+        <span class="emoji">👨‍👩‍👧‍👧</span>
+        <span class="emoji">👩‍👩‍👦</span>
+        <span class="emoji">👩‍👩‍👧</span>
+        <span class="emoji">👩‍👩‍👧‍👦</span>
+        <span class="emoji">👩‍👩‍👦‍👦</span>
+        <span class="emoji">👩‍👩‍👧‍👧</span>
+        <span class="emoji">👨‍👨‍👦</span>
+        <span class="emoji">👨‍👨‍👧</span>
+        <span class="emoji">👨‍👨‍👧‍👦</span>
+        <span class="emoji">👨‍👨‍👦‍👦</span>
+        <span class="emoji">👨‍👨‍👧‍👧</span>
+        <span class="emoji">👚</span>
+        <span class="emoji">👕</span>
+        <span class="emoji">👖</span>
+        <span class="emoji">👔</span>
+        <span class="emoji">👗</span>
+        <span class="emoji">👙</span>
+        <span class="emoji">👘</span>
+        <span class="emoji">💄</span>
+        <span class="emoji">💋</span>
+        <span class="emoji">👣</span>
+        <span class="emoji">👠</span>
+        <span class="emoji">👡</span>
+        <span class="emoji">👢</span>
+        <span class="emoji">👞</span>
+        <span class="emoji">👟</span>
+        <span class="emoji">👒</span>
+        <span class="emoji">🎩</span>
+        <span class="emoji">⛑</span>
+        <span class="emoji">🎓</span>
+        <span class="emoji">👑</span>
+        <span class="emoji">🎒</span>
+        <span class="emoji">👝</span>
+        <span class="emoji">👛</span>
+        <span class="emoji">👜</span>
+        <span class="emoji">💼</span>
+        <span class="emoji">👓</span>
+        <span class="emoji">🕶</span>
+        <span class="emoji">💍</span>
+        <span class="emoji">🌂</span>
+      </div>
     </aside>
   </div>
 </div>
+
+<!-- <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2.2"></script> -->

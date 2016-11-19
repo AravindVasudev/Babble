@@ -53,12 +53,12 @@ justify-content: center;
     .app-header-content {
 
       h1 {
-        display: inline-block;
+        display: inline;
         padding-left: 2%;
         font-size: 2em;
         color: white;
         font-family: $oswald;
-        text-shadow: rgb(224, 224, 224) 1px 1px 0px;
+        // text-shadow: rgb(224, 224, 224) 1px 1px 0px;
       }
 
       .menu-button {
@@ -286,6 +286,24 @@ justify-content: center;
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   not supported by any browser */
+}
+
+.emoji-tray {
+
+  height: 100%;
+  width: 100%;
+
+  overflow-y: scroll;
+
+    .emoji {
+      font-size: 2em;
+      padding: 2px;
+      cursor: pointer;
+    }
+}
+
+.memoji {
+  font-size: 4em;
 }
 
 @media only screen and (max-width: 768px) {

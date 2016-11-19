@@ -1,4 +1,5 @@
 var socket = io();
+var audio = new Audio('media/chat.mp3');
 $('form').submit(function(){
   if($('#type-message').val() === '') return false;
   socket.emit('chat message', $('#type-message').val());
@@ -13,7 +14,8 @@ socket.on('chat message', function(msg){
   else {
     message = `<div class="message"><span class="username noselect">${msg.name}</span><span class="msg">${msg.msg}</span><span class="time noselect">${msg.time}</span></div>`;
   }
-  // console.log(msg.activeUsers);
+  audio.play();
+  navigator.vibrate(100);
   $('#messages').append(message);
   $(".messages").scrollTop($(".messages").children().height());
 });
@@ -43,12 +45,16 @@ socket.on('leave', function(msg){
   $(".messages").scrollTop($(".messages").children().height());
 });
 
-socket.on('userList', function(msg){
-  console.log(msg);
-});
 
 $(function() {
-  // $('.menu-button').click(function() {
-  //   this.classList.toggle("change");
-  // });
+  $('.emoji').click(function() {
+    let $box = $('#type-message');
+    $box.val(`${$box.val()}${$(this).text()}`);
+    $box.focus();
+  });
+
+  $( ".emoji" ).contextmenu(function() {
+    socket.emit('chat message', `<span class="memoji">${$(this).text()}</span>`);
+    return false;
+  });
 });

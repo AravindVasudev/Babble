@@ -47,7 +47,6 @@ module.exports = (io) => {
           history.history.push(message);
           history = JSON.stringify(history);
 
-
           fs.writeFile('./models/history.json', history, (err) => {
             if(err) throw err;
           });
