@@ -27,6 +27,21 @@
       <div class="messages">
         <div id="messages">
 
+          {{#each history}}
+            {{#areEqual id ../user.id }}
+              <div class="message-me">
+                <span class="msg">{{msg}}</span>
+                <span class="time noselect">{{time}}</span>
+              </div>
+            {{else}}
+            <div class="message">
+              <span class="username noselect">{{name}}</span>
+              <span class="msg">{{msg}}</span>
+              <span class="time noselect">{{time}}</span>
+            </div>
+            {{/areEqual}}
+          {{/each}}
+
         </div>
       </div>
       <div class="sender noselect">

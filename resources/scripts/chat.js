@@ -7,12 +7,11 @@ $('form').submit(function(){
 });
 socket.on('chat message', function(msg){
   let message = "";
-  let time = formatAMPM(new Date());
   if(msg.id == $('#userid').val()) {
-    message = `<div class="message-me"><span class="msg">${msg.msg}</span><span class="time noselect">${time}</span></div>`;
+    message = `<div class="message-me"><span class="msg">${msg.msg}</span><span class="time noselect">${msg.time}</span></div>`;
   }
   else {
-    message = `<div class="message"><span class="username noselect">${msg.name}</span><span class="msg">${msg.msg}</span><span class="time noselect">${time}</span></div>`;
+    message = `<div class="message"><span class="username noselect">${msg.name}</span><span class="msg">${msg.msg}</span><span class="time noselect">${msg.time}</span></div>`;
   }
   // console.log(msg.activeUsers);
   $('#messages').append(message);
@@ -20,28 +19,30 @@ socket.on('chat message', function(msg){
 });
 
 socket.on('join', function(msg){
-  let message = `<div class="message-bot"><kbd>${msg.user} has joined</kbd></div>`;
+  let message = '';
+  if(msg.id == $('#userid').val()) {
+    message = `<div class="message-bot noselect"><kbd>you joined the chatroom</kbd></div>`;
+  }
+  else {
+    message = `<div class="message-bot noselect"><kbd>${msg.user} has joined</kbd></div>`;
+  }
+
   $('#messages').append(message);
   $(".messages").scrollTop($(".messages").children().height());
 });
 
 socket.on('leave', function(msg){
-  let message = `<div class="message-bot"><kbd>${msg.user} has left</kbd></div>`;
+  let message = '';
+  if(msg.id == $('#userid').val()) {
+    message = `<div class="message-bot noselect"><kbd>disconnected</kbd></div>`;
+  }
+  else{
+    message = `<div class="message-bot noselect"><kbd>${msg.user} has left</kbd></div>`;
+  }
   $('#messages').append(message);
   $(".messages").scrollTop($(".messages").children().height());
 });
 
-
-function formatAMPM(date) {
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var ampm = hours >= 12 ? 'pm' : 'am';
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? '0'+minutes : minutes;
-  var strTime = hours + ':' + minutes + ' ' + ampm;
-  return strTime;
-}
 
 $(function() {
   // $('.menu-button').click(function() {
