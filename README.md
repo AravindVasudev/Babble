@@ -1,5 +1,6 @@
 ![screenshot](resources/images/screenshot.png)
 # Babble.gq
+[![Dependency Status](https://www.versioneye.com/user/projects/5830b93d182815003cfd93e7/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5830b93d182815003cfd93e7)
 > A Real Time Chat Application built using Node.js, Express, Handlebars, Mongoose, Socket.io, Passport, & express-mvc-h5bp.
 
 ## Index
