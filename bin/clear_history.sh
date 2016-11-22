@@ -1,0 +1,1 @@
+echo '{ "history": [] }' > '../models/history.json'
