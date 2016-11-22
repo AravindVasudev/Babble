@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo "{\"history\":[]}" > ${OPENSHIFT_REPO_DIR}/models/history.json
