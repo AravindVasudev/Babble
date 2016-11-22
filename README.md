@@ -1,5 +1,5 @@
 ![screenshot](resources/images/screenshot.png)
-# Babble.gq
+# Babble
 [![Dependency Status](https://www.versioneye.com/user/projects/5830b93d182815003cfd93e7/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5830b93d182815003cfd93e7)
 > A Real Time Chat Application built using Node.js, Express, Handlebars, Mongoose, Socket.io, Passport, & express-mvc-h5bp.
 
@@ -34,7 +34,7 @@ Check it out: [babble.gq](http://babble.gq/)
     ```
     $ npm install
     ```
-  3. Add Facebook Client ID, Client Secret and Callback URL of your app to config/auth.js
+  3. Add Facebook Client ID and Client Secret to FB_CLIENT_ID and FB_CLIENT_SECRET environment variables.
 
   4. Download and Install MongoDB
 
