@@ -7,12 +7,17 @@ module.exports = (io) => {
   const shortid  = require('shortid');
   const escape   = require('escape-html');
   const twemoji  = require('twemoji');
+  const https    = require('https');
 
   //User Model
   const User = require('../models/user.js');
 
   //Passport Config
   const auth = require('../config/passport');
+
+  //Wikipedia Search links
+  const wikipediaAPILink = 'https://en.wikipedia.org/w/api.php?format=json&action=query&list=search&srsearch=';
+  const wikipediaLink    = 'https://en.wikipedia.org/wiki/';
 
   router.get('/', auth.ensureAuthenticated, (req, res) => {
 
@@ -40,10 +45,61 @@ module.exports = (io) => {
     socket.on('chat message', function(msg){
 
       if(!!msg.trim()) {
+        let message = {};
+
         let clean_msg = escape(msg);
 
-        let message = {id: socket.request.user.id, name: socket.request.user.displayName, msg: clean_msg, time: formatAMPM(new Date())};
+          message = {id: socket.request.user.id, name: socket.request.user.displayName, msg: clean_msg, time: formatAMPM(new Date())};
+
         io.emit('chat message', message);
+
+        if(clean_msg.match(/^@emma/i)) {
+          let bot_message = {};
+
+          let query = clean_msg.replace('@emma', '');
+
+          let wikipediaSearchURL = wikipediaAPILink + query;
+
+          https.get(wikipediaSearchURL, (res) => {
+
+            let resBody = '';
+
+            res.on('data', (chunk) => {
+              resBody += chunk;
+            });
+
+            res.on('end', () => {
+
+              resBody = JSON.parse(resBody);
+
+              let title = resBody.query.search[0].title;
+              let body  = resBody.query.search[0].snippet;
+
+              let b_data = `<a href="${wikipediaLink}${title}" target="_blank">${title}</a> - ${body}`;
+
+              bot_message = {id: 'bot', name: 'Emma(bot)', msg: b_data, time: formatAMPM(new Date())};
+              io.emit('chat message', bot_message);
+
+              fs.readFile('./models/history.json', 'utf8', (err, data) => {
+                if(err) throw err;
+
+                let history = JSON.parse(data);
+
+                history.history.push(bot_message);
+                history = JSON.stringify(history);
+
+                fs.writeFile('./models/history.json', history, (err) => {
+                  if(err) throw err;
+                });
+              });
+
+
+            });
+
+
+          });
+
+        }
 
         fs.readFile('./models/history.json', 'utf8', (err, data) => {
           if(err) throw err;

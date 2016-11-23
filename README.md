@@ -68,7 +68,7 @@ Check it out: [babble.gq](http://babble.gq/)
   6. Commit the changes
 
 ## Contribute <a name="contribute"></a>
-  You are always welcome to open an issue or provide a pull-request!
+  You are always welcome to open an issue or provide a pull-request! `Sorry for the bad code quality. Since this is first of my projects, just trying to make it work.`
 
 ## License <a name="license"></a>
 Built under [MIT](http://www.opensource.org/licenses/mit-license.php) license.

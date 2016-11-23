@@ -88,8 +88,6 @@ $(function() {
 
   $( ".messages" ).click(function(e) {
     $('.context-menu').slideUp(300);
-
-    return false;
   });
 
   $( ".emoji" ).contextmenu(function() {
