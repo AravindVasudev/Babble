@@ -1,10 +1,11 @@
 module.exports = (io) => {
-  const express          = require('express');
-  const passport         = require('passport');
-  const router           = express.Router();
-  const fs               = require('fs');
-  const hbs              = require('hbs');
-  const shortid          = require('shortid');
+  const express  = require('express');
+  const passport = require('passport');
+  const router   = express.Router();
+  const fs       = require('fs');
+  const hbs      = require('hbs');
+  const shortid  = require('shortid');
+  const escape   = require('escape-html');
 
   //User Model
   const User = require('../models/user.js');
@@ -37,7 +38,8 @@ module.exports = (io) => {
 
     socket.on('chat message', function(msg){
       if(!!msg) {
-        let message = {id: socket.request.user.id, name: socket.request.user.displayName, msg: msg, time: formatAMPM(new Date())};
+        let clean_msg = escape(msg);
+        let message = {id: socket.request.user.id, name: socket.request.user.displayName, msg: clean_msg, time: formatAMPM(new Date())};
         io.emit('chat message', message);
 
         fs.readFile('./models/history.json', 'utf8', (err, data) => {
