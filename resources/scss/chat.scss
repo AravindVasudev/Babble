@@ -305,15 +305,20 @@ justify-content: center;
   overflow-y: scroll;
 
     .emoji {
-      font-size: 2em;
+      // font-size: 2em;
       padding: 2px;
       cursor: pointer;
+      height: 50px;
     }
 }
 
-.memoji {
-  font-size: 4em;
+.msg .emoji {
+  height: 30px;
 }
+
+// .memoji {
+//   font-size: 4em;
+// }
 
 .image > img { cursor:zoom-in; }
 .image > img:-webkit-full-screen { cursor:zoom-out; }

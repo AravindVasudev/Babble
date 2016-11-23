@@ -35,7 +35,7 @@
             {{#areEqual id ../user.id }}
               <div class="message-me">
                 {{#if msg}}
-                  <span class="msg">{{{msg}}}</span>
+                  <span class="msg">{{twemojify msg}}</span>
                 {{/if}}
                 {{#if image}}
                   <span class="image"><img src="{{{image}}}" class="img-responsive"></span>
@@ -46,7 +46,7 @@
             <div class="message">
               <span class="username noselect">{{name}}</span>
               {{#if msg}}
-                <span class="msg">{{{msg}}}</span>
+                <span class="msg">{{twemojify msg}}</span>
               {{/if}}
               {{#if image}}
                 <span class="image"><img src="{{{image}}}" class="img-responsive"></span>
@@ -66,205 +66,205 @@
     </main>
     <aside class="col-md-3 hidden-xs hidden-sm noselect">
       <div class="emoji-tray">
-        <span class="emoji">😀</span>
-        <span class="emoji">😬</span>
-        <span class="emoji">😁</span>
-        <span class="emoji">😂</span>
-        <span class="emoji">😃</span>
-        <span class="emoji">😄</span>
-        <span class="emoji">😅</span>
-        <span class="emoji">😆</span>
-        <span class="emoji">😇</span>
-        <span class="emoji">😉</span>
-        <span class="emoji">😊</span>
-        <span class="emoji">🙂</span>
-        <span class="emoji">🙃</span>
-        <span class="emoji">😋</span>
-        <span class="emoji">😌</span>
-        <span class="emoji">😍</span>
-        <span class="emoji">😘</span>
-        <span class="emoji">😗</span>
-        <span class="emoji">😙</span>
-        <span class="emoji">😚</span>
-        <span class="emoji">😜</span>
-        <span class="emoji">😝</span>
-        <span class="emoji">😛</span>
-        <span class="emoji">🤑</span>
-        <span class="emoji">🤓</span>
-        <span class="emoji">😎</span>
-        <span class="emoji">🤗</span>
-        <span class="emoji">😏</span>
-        <span class="emoji">😶</span>
-        <span class="emoji">😐</span>
-        <span class="emoji">😑</span>
-        <span class="emoji">😒</span>
-        <span class="emoji">🙄</span>
-        <span class="emoji">🤔</span>
-        <span class="emoji">😳</span>
-        <span class="emoji">😞</span>
-        <span class="emoji">😟</span>
-        <span class="emoji">😠</span>
-        <span class="emoji">😡</span>
-        <span class="emoji">😔</span>
-        <span class="emoji">😕</span>
-        <span class="emoji">🙁</span>
-        <span class="emoji">☹️</span>
-        <span class="emoji">😣</span>
-        <span class="emoji">😖</span>
-        <span class="emoji">😫</span>
-        <span class="emoji">😩</span>
-        <span class="emoji">😤</span>
-        <span class="emoji">😮</span>
-        <span class="emoji">😱</span>
-        <span class="emoji">😨</span>
-        <span class="emoji">😰</span>
-        <span class="emoji">😯</span>
-        <span class="emoji">😦</span>
-        <span class="emoji">😧</span>
-        <span class="emoji">😢</span>
-        <span class="emoji">😥</span>
-        <span class="emoji">😪</span>
-        <span class="emoji">😓</span>
-        <span class="emoji">😭</span>
-        <span class="emoji">😵</span>
-        <span class="emoji">😲</span>
-        <span class="emoji">🤐</span>
-        <span class="emoji">😷</span>
-        <span class="emoji">🤒</span>
-        <span class="emoji">🤕</span>
-        <span class="emoji">😴</span>
-        <span class="emoji">💤</span>
-        <span class="emoji">💩</span>
-        <span class="emoji">😈</span>
-        <span class="emoji">👿</span>
-        <span class="emoji">👹</span>
-        <span class="emoji">👺</span>
-        <span class="emoji">💀</span>
-        <span class="emoji">👻</span>
-        <span class="emoji">👽</span>
-        <span class="emoji">🤖</span>
-        <span class="emoji">😺</span>
-        <span class="emoji">😸</span>
-        <span class="emoji">😹</span>
-        <span class="emoji">😻</span>
-        <span class="emoji">😼</span>
-        <span class="emoji">😽</span>
-        <span class="emoji">🙀</span>
-        <span class="emoji">😿</span>
-        <span class="emoji">😾</span>
-        <span class="emoji">🙌</span>
-        <span class="emoji">👏</span>
-        <span class="emoji">👋</span>
-        <span class="emoji">👍</span>
-        <span class="emoji">👊</span>
-        <span class="emoji">✊</span>
-        <span class="emoji">✌️</span>
-        <span class="emoji">👌</span>
-        <span class="emoji">✋</span>
-        <span class="emoji">💪</span>
-        <span class="emoji">🙏</span>
-        <span class="emoji">☝️</span>
-        <span class="emoji">👆</span>
-        <span class="emoji">👇</span>
-        <span class="emoji">👈</span>
-        <span class="emoji">👉</span>
-        <span class="emoji">🖕</span>
-        <span class="emoji">🤘</span>
-        <span class="emoji">🖖</span>
-        <span class="emoji">✍️</span>
-        <span class="emoji">💅</span>
-        <span class="emoji">👄</span>
-        <span class="emoji">👅</span>
-        <span class="emoji">👂</span>
-        <span class="emoji">👃</span>
-        <span class="emoji">👁</span>
-        <span class="emoji">👀</span>
-        <span class="emoji">👤</span>
-        <span class="emoji">🗣</span>
-        <span class="emoji">👶</span>
-        <span class="emoji">👦</span>
-        <span class="emoji">👧</span>
-        <span class="emoji">👨</span>
-        <span class="emoji">👩</span>
-        <span class="emoji">👱</span>
-        <span class="emoji">👴</span>
-        <span class="emoji">👵</span>
-        <span class="emoji">👲</span>
-        <span class="emoji">👳</span>
-        <span class="emoji">👮</span>
-        <span class="emoji">👷</span>
-        <span class="emoji">💂</span>
-        <span class="emoji">🕵</span>
-        <span class="emoji">🎅</span>
-        <span class="emoji">👼</span>
-        <span class="emoji">👸</span>
-        <span class="emoji">👰</span>
-        <span class="emoji">🚶</span>
-        <span class="emoji">🏃</span>
-        <span class="emoji">💃</span>
-        <span class="emoji">👯</span>
-        <span class="emoji">👫</span>
-        <span class="emoji">👬</span>
-        <span class="emoji">👭</span>
-        <span class="emoji">🙇</span>
-        <span class="emoji">💁</span>
-        <span class="emoji">🙅</span>
-        <span class="emoji">🙆</span>
-        <span class="emoji">🙋</span>
-        <span class="emoji">🙎</span>
-        <span class="emoji">🙍</span>
-        <span class="emoji">💇</span>
-        <span class="emoji">💆</span>
-        <span class="emoji">💑</span>
-        <span class="emoji">👩‍❤️‍👩</span>
-        <span class="emoji">👨‍❤️‍👨</span>
-        <span class="emoji">💏</span>
-        <span class="emoji">👩‍❤️‍💋‍👩</span>
-        <span class="emoji">👨‍❤️‍💋‍👨</span>
-        <span class="emoji">👪</span>
-        <span class="emoji">👨‍👩‍👧</span>
-        <span class="emoji">👨‍👩‍👧‍👦</span>
-        <span class="emoji">👨‍👩‍👦‍👦</span>
-        <span class="emoji">👨‍👩‍👧‍👧</span>
-        <span class="emoji">👩‍👩‍👦</span>
-        <span class="emoji">👩‍👩‍👧</span>
-        <span class="emoji">👩‍👩‍👧‍👦</span>
-        <span class="emoji">👩‍👩‍👦‍👦</span>
-        <span class="emoji">👩‍👩‍👧‍👧</span>
-        <span class="emoji">👨‍👨‍👦</span>
-        <span class="emoji">👨‍👨‍👧</span>
-        <span class="emoji">👨‍👨‍👧‍👦</span>
-        <span class="emoji">👨‍👨‍👦‍👦</span>
-        <span class="emoji">👨‍👨‍👧‍👧</span>
-        <span class="emoji">👚</span>
-        <span class="emoji">👕</span>
-        <span class="emoji">👖</span>
-        <span class="emoji">👔</span>
-        <span class="emoji">👗</span>
-        <span class="emoji">👙</span>
-        <span class="emoji">👘</span>
-        <span class="emoji">💄</span>
-        <span class="emoji">💋</span>
-        <span class="emoji">👣</span>
-        <span class="emoji">👠</span>
-        <span class="emoji">👡</span>
-        <span class="emoji">👢</span>
-        <span class="emoji">👞</span>
-        <span class="emoji">👟</span>
-        <span class="emoji">👒</span>
-        <span class="emoji">🎩</span>
-        <span class="emoji">⛑</span>
-        <span class="emoji">🎓</span>
-        <span class="emoji">👑</span>
-        <span class="emoji">🎒</span>
-        <span class="emoji">👝</span>
-        <span class="emoji">👛</span>
-        <span class="emoji">👜</span>
-        <span class="emoji">💼</span>
-        <span class="emoji">👓</span>
-        <span class="emoji">🕶</span>
-        <span class="emoji">💍</span>
-        <span class="emoji">🌂</span>
+        <img class="emoji" draggable="false" alt="😀" src="https://twemoji.maxcdn.com/2/72x72/1f600.png">
+        <img class="emoji" draggable="false" alt="😬" src="https://twemoji.maxcdn.com/2/72x72/1f62c.png">
+        <img class="emoji" draggable="false" alt="😁" src="https://twemoji.maxcdn.com/2/72x72/1f601.png">
+        <img class="emoji" draggable="false" alt="😂" src="https://twemoji.maxcdn.com/2/72x72/1f602.png">
+        <img class="emoji" draggable="false" alt="😃" src="https://twemoji.maxcdn.com/2/72x72/1f603.png">
+        <img class="emoji" draggable="false" alt="😄" src="https://twemoji.maxcdn.com/2/72x72/1f604.png">
+        <img class="emoji" draggable="false" alt="😅" src="https://twemoji.maxcdn.com/2/72x72/1f605.png">
+        <img class="emoji" draggable="false" alt="😆" src="https://twemoji.maxcdn.com/2/72x72/1f606.png">
+        <img class="emoji" draggable="false" alt="😇" src="https://twemoji.maxcdn.com/2/72x72/1f607.png">
+        <img class="emoji" draggable="false" alt="😉" src="https://twemoji.maxcdn.com/2/72x72/1f609.png">
+        <img class="emoji" draggable="false" alt="😊" src="https://twemoji.maxcdn.com/2/72x72/1f60a.png">
+        <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/2/72x72/1f642.png">
+        <img class="emoji" draggable="false" alt="🙃" src="https://twemoji.maxcdn.com/2/72x72/1f643.png">
+        <img class="emoji" draggable="false" alt="😋" src="https://twemoji.maxcdn.com/2/72x72/1f60b.png">
+        <img class="emoji" draggable="false" alt="😌" src="https://twemoji.maxcdn.com/2/72x72/1f60c.png">
+        <img class="emoji" draggable="false" alt="😍" src="https://twemoji.maxcdn.com/2/72x72/1f60d.png">
+        <img class="emoji" draggable="false" alt="😘" src="https://twemoji.maxcdn.com/2/72x72/1f618.png">
+        <img class="emoji" draggable="false" alt="😗" src="https://twemoji.maxcdn.com/2/72x72/1f617.png">
+        <img class="emoji" draggable="false" alt="😙" src="https://twemoji.maxcdn.com/2/72x72/1f619.png">
+        <img class="emoji" draggable="false" alt="😚" src="https://twemoji.maxcdn.com/2/72x72/1f61a.png">
+        <img class="emoji" draggable="false" alt="😜" src="https://twemoji.maxcdn.com/2/72x72/1f61c.png">
+        <img class="emoji" draggable="false" alt="😝" src="https://twemoji.maxcdn.com/2/72x72/1f61d.png">
+        <img class="emoji" draggable="false" alt="😛" src="https://twemoji.maxcdn.com/2/72x72/1f61b.png">
+        <img class="emoji" draggable="false" alt="🤑" src="https://twemoji.maxcdn.com/2/72x72/1f911.png">
+        <img class="emoji" draggable="false" alt="🤓" src="https://twemoji.maxcdn.com/2/72x72/1f913.png">
+        <img class="emoji" draggable="false" alt="😎" src="https://twemoji.maxcdn.com/2/72x72/1f60e.png">
+        <img class="emoji" draggable="false" alt="🤗" src="https://twemoji.maxcdn.com/2/72x72/1f917.png">
+        <img class="emoji" draggable="false" alt="😏" src="https://twemoji.maxcdn.com/2/72x72/1f60f.png">
+        <img class="emoji" draggable="false" alt="😶" src="https://twemoji.maxcdn.com/2/72x72/1f636.png">
+        <img class="emoji" draggable="false" alt="😐" src="https://twemoji.maxcdn.com/2/72x72/1f610.png">
+        <img class="emoji" draggable="false" alt="😑" src="https://twemoji.maxcdn.com/2/72x72/1f611.png">
+        <img class="emoji" draggable="false" alt="😒" src="https://twemoji.maxcdn.com/2/72x72/1f612.png">
+        <img class="emoji" draggable="false" alt="🙄" src="https://twemoji.maxcdn.com/2/72x72/1f644.png">
+        <img class="emoji" draggable="false" alt="🤔" src="https://twemoji.maxcdn.com/2/72x72/1f914.png">
+        <img class="emoji" draggable="false" alt="😳" src="https://twemoji.maxcdn.com/2/72x72/1f633.png">
+        <img class="emoji" draggable="false" alt="😞" src="https://twemoji.maxcdn.com/2/72x72/1f61e.png">
+        <img class="emoji" draggable="false" alt="😟" src="https://twemoji.maxcdn.com/2/72x72/1f61f.png">
+        <img class="emoji" draggable="false" alt="😠" src="https://twemoji.maxcdn.com/2/72x72/1f620.png">
+        <img class="emoji" draggable="false" alt="😡" src="https://twemoji.maxcdn.com/2/72x72/1f621.png">
+        <img class="emoji" draggable="false" alt="😔" src="https://twemoji.maxcdn.com/2/72x72/1f614.png">
+        <img class="emoji" draggable="false" alt="😕" src="https://twemoji.maxcdn.com/2/72x72/1f615.png">
+        <img class="emoji" draggable="false" alt="🙁" src="https://twemoji.maxcdn.com/2/72x72/1f641.png">
+        <img class="emoji" draggable="false" alt="☹️" src="https://twemoji.maxcdn.com/2/72x72/2639.png">
+        <img class="emoji" draggable="false" alt="😣" src="https://twemoji.maxcdn.com/2/72x72/1f623.png">
+        <img class="emoji" draggable="false" alt="😖" src="https://twemoji.maxcdn.com/2/72x72/1f616.png">
+        <img class="emoji" draggable="false" alt="😫" src="https://twemoji.maxcdn.com/2/72x72/1f62b.png">
+        <img class="emoji" draggable="false" alt="😩" src="https://twemoji.maxcdn.com/2/72x72/1f629.png">
+        <img class="emoji" draggable="false" alt="😤" src="https://twemoji.maxcdn.com/2/72x72/1f624.png">
+        <img class="emoji" draggable="false" alt="😮" src="https://twemoji.maxcdn.com/2/72x72/1f62e.png">
+        <img class="emoji" draggable="false" alt="😱" src="https://twemoji.maxcdn.com/2/72x72/1f631.png">
+        <img class="emoji" draggable="false" alt="😨" src="https://twemoji.maxcdn.com/2/72x72/1f628.png">
+        <img class="emoji" draggable="false" alt="😰" src="https://twemoji.maxcdn.com/2/72x72/1f630.png">
+        <img class="emoji" draggable="false" alt="😯" src="https://twemoji.maxcdn.com/2/72x72/1f62f.png">
+        <img class="emoji" draggable="false" alt="😦" src="https://twemoji.maxcdn.com/2/72x72/1f626.png">
+        <img class="emoji" draggable="false" alt="😧" src="https://twemoji.maxcdn.com/2/72x72/1f627.png">
+        <img class="emoji" draggable="false" alt="😢" src="https://twemoji.maxcdn.com/2/72x72/1f622.png">
+        <img class="emoji" draggable="false" alt="😥" src="https://twemoji.maxcdn.com/2/72x72/1f625.png">
+        <img class="emoji" draggable="false" alt="😪" src="https://twemoji.maxcdn.com/2/72x72/1f62a.png">
+        <img class="emoji" draggable="false" alt="😓" src="https://twemoji.maxcdn.com/2/72x72/1f613.png">
+        <img class="emoji" draggable="false" alt="😭" src="https://twemoji.maxcdn.com/2/72x72/1f62d.png">
+        <img class="emoji" draggable="false" alt="😵" src="https://twemoji.maxcdn.com/2/72x72/1f635.png">
+        <img class="emoji" draggable="false" alt="😲" src="https://twemoji.maxcdn.com/2/72x72/1f632.png">
+        <img class="emoji" draggable="false" alt="🤐" src="https://twemoji.maxcdn.com/2/72x72/1f910.png">
+        <img class="emoji" draggable="false" alt="😷" src="https://twemoji.maxcdn.com/2/72x72/1f637.png">
+        <img class="emoji" draggable="false" alt="🤒" src="https://twemoji.maxcdn.com/2/72x72/1f912.png">
+        <img class="emoji" draggable="false" alt="🤕" src="https://twemoji.maxcdn.com/2/72x72/1f915.png">
+        <img class="emoji" draggable="false" alt="😴" src="https://twemoji.maxcdn.com/2/72x72/1f634.png">
+        <img class="emoji" draggable="false" alt="💤" src="https://twemoji.maxcdn.com/2/72x72/1f4a4.png">
+        <img class="emoji" draggable="false" alt="💩" src="https://twemoji.maxcdn.com/2/72x72/1f4a9.png">
+        <img class="emoji" draggable="false" alt="😈" src="https://twemoji.maxcdn.com/2/72x72/1f608.png">
+        <img class="emoji" draggable="false" alt="👿" src="https://twemoji.maxcdn.com/2/72x72/1f47f.png">
+        <img class="emoji" draggable="false" alt="👹" src="https://twemoji.maxcdn.com/2/72x72/1f479.png">
+        <img class="emoji" draggable="false" alt="👺" src="https://twemoji.maxcdn.com/2/72x72/1f47a.png">
+        <img class="emoji" draggable="false" alt="💀" src="https://twemoji.maxcdn.com/2/72x72/1f480.png">
+        <img class="emoji" draggable="false" alt="👻" src="https://twemoji.maxcdn.com/2/72x72/1f47b.png">
+        <img class="emoji" draggable="false" alt="👽" src="https://twemoji.maxcdn.com/2/72x72/1f47d.png">
+        <img class="emoji" draggable="false" alt="🤖" src="https://twemoji.maxcdn.com/2/72x72/1f916.png">
+        <img class="emoji" draggable="false" alt="😺" src="https://twemoji.maxcdn.com/2/72x72/1f63a.png">
+        <img class="emoji" draggable="false" alt="😸" src="https://twemoji.maxcdn.com/2/72x72/1f638.png">
+        <img class="emoji" draggable="false" alt="😹" src="https://twemoji.maxcdn.com/2/72x72/1f639.png">
+        <img class="emoji" draggable="false" alt="😻" src="https://twemoji.maxcdn.com/2/72x72/1f63b.png">
+        <img class="emoji" draggable="false" alt="😼" src="https://twemoji.maxcdn.com/2/72x72/1f63c.png">
+        <img class="emoji" draggable="false" alt="😽" src="https://twemoji.maxcdn.com/2/72x72/1f63d.png">
+        <img class="emoji" draggable="false" alt="🙀" src="https://twemoji.maxcdn.com/2/72x72/1f640.png">
+        <img class="emoji" draggable="false" alt="😿" src="https://twemoji.maxcdn.com/2/72x72/1f63f.png">
+        <img class="emoji" draggable="false" alt="😾" src="https://twemoji.maxcdn.com/2/72x72/1f63e.png">
+        <img class="emoji" draggable="false" alt="🙌" src="https://twemoji.maxcdn.com/2/72x72/1f64c.png">
+        <img class="emoji" draggable="false" alt="👏" src="https://twemoji.maxcdn.com/2/72x72/1f44f.png">
+        <img class="emoji" draggable="false" alt="👋" src="https://twemoji.maxcdn.com/2/72x72/1f44b.png">
+        <img class="emoji" draggable="false" alt="👍" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+        <img class="emoji" draggable="false" alt="👊" src="https://twemoji.maxcdn.com/2/72x72/1f44a.png">
+        <img class="emoji" draggable="false" alt="✊" src="https://twemoji.maxcdn.com/2/72x72/270a.png">
+        <img class="emoji" draggable="false" alt="✌️" src="https://twemoji.maxcdn.com/2/72x72/270c.png">
+        <img class="emoji" draggable="false" alt="👌" src="https://twemoji.maxcdn.com/2/72x72/1f44c.png">
+        <img class="emoji" draggable="false" alt="✋" src="https://twemoji.maxcdn.com/2/72x72/270b.png">
+        <img class="emoji" draggable="false" alt="💪" src="https://twemoji.maxcdn.com/2/72x72/1f4aa.png">
+        <img class="emoji" draggable="false" alt="🙏" src="https://twemoji.maxcdn.com/2/72x72/1f64f.png">
+        <img class="emoji" draggable="false" alt="☝️" src="https://twemoji.maxcdn.com/2/72x72/261d.png">
+        <img class="emoji" draggable="false" alt="👆" src="https://twemoji.maxcdn.com/2/72x72/1f446.png">
+        <img class="emoji" draggable="false" alt="👇" src="https://twemoji.maxcdn.com/2/72x72/1f447.png">
+        <img class="emoji" draggable="false" alt="👈" src="https://twemoji.maxcdn.com/2/72x72/1f448.png">
+        <img class="emoji" draggable="false" alt="👉" src="https://twemoji.maxcdn.com/2/72x72/1f449.png">
+        <img class="emoji" draggable="false" alt="🖕" src="https://twemoji.maxcdn.com/2/72x72/1f595.png">
+        <img class="emoji" draggable="false" alt="🤘" src="https://twemoji.maxcdn.com/2/72x72/1f918.png">
+        <img class="emoji" draggable="false" alt="🖖" src="https://twemoji.maxcdn.com/2/72x72/1f596.png">
+        <img class="emoji" draggable="false" alt="✍️" src="https://twemoji.maxcdn.com/2/72x72/270d.png">
+        <img class="emoji" draggable="false" alt="💅" src="https://twemoji.maxcdn.com/2/72x72/1f485.png">
+        <img class="emoji" draggable="false" alt="👄" src="https://twemoji.maxcdn.com/2/72x72/1f444.png">
+        <img class="emoji" draggable="false" alt="👅" src="https://twemoji.maxcdn.com/2/72x72/1f445.png">
+        <img class="emoji" draggable="false" alt="👂" src="https://twemoji.maxcdn.com/2/72x72/1f442.png">
+        <img class="emoji" draggable="false" alt="👃" src="https://twemoji.maxcdn.com/2/72x72/1f443.png">
+        <img class="emoji" draggable="false" alt="👁" src="https://twemoji.maxcdn.com/2/72x72/1f441.png">
+        <img class="emoji" draggable="false" alt="👀" src="https://twemoji.maxcdn.com/2/72x72/1f440.png">
+        <img class="emoji" draggable="false" alt="👤" src="https://twemoji.maxcdn.com/2/72x72/1f464.png">
+        <img class="emoji" draggable="false" alt="🗣" src="https://twemoji.maxcdn.com/2/72x72/1f5e3.png">
+        <img class="emoji" draggable="false" alt="👶" src="https://twemoji.maxcdn.com/2/72x72/1f476.png">
+        <img class="emoji" draggable="false" alt="👦" src="https://twemoji.maxcdn.com/2/72x72/1f466.png">
+        <img class="emoji" draggable="false" alt="👧" src="https://twemoji.maxcdn.com/2/72x72/1f467.png">
+        <img class="emoji" draggable="false" alt="👨" src="https://twemoji.maxcdn.com/2/72x72/1f468.png">
+        <img class="emoji" draggable="false" alt="👩" src="https://twemoji.maxcdn.com/2/72x72/1f469.png">
+        <img class="emoji" draggable="false" alt="👱" src="https://twemoji.maxcdn.com/2/72x72/1f471.png">
+        <img class="emoji" draggable="false" alt="👴" src="https://twemoji.maxcdn.com/2/72x72/1f474.png">
+        <img class="emoji" draggable="false" alt="👵" src="https://twemoji.maxcdn.com/2/72x72/1f475.png">
+        <img class="emoji" draggable="false" alt="👲" src="https://twemoji.maxcdn.com/2/72x72/1f472.png">
+        <img class="emoji" draggable="false" alt="👳" src="https://twemoji.maxcdn.com/2/72x72/1f473.png">
+        <img class="emoji" draggable="false" alt="👮" src="https://twemoji.maxcdn.com/2/72x72/1f46e.png">
+        <img class="emoji" draggable="false" alt="👷" src="https://twemoji.maxcdn.com/2/72x72/1f477.png">
+        <img class="emoji" draggable="false" alt="💂" src="https://twemoji.maxcdn.com/2/72x72/1f482.png">
+        <img class="emoji" draggable="false" alt="🕵" src="https://twemoji.maxcdn.com/2/72x72/1f575.png">
+        <img class="emoji" draggable="false" alt="🎅" src="https://twemoji.maxcdn.com/2/72x72/1f385.png">
+        <img class="emoji" draggable="false" alt="👼" src="https://twemoji.maxcdn.com/2/72x72/1f47c.png">
+        <img class="emoji" draggable="false" alt="👸" src="https://twemoji.maxcdn.com/2/72x72/1f478.png">
+        <img class="emoji" draggable="false" alt="👰" src="https://twemoji.maxcdn.com/2/72x72/1f470.png">
+        <img class="emoji" draggable="false" alt="🚶" src="https://twemoji.maxcdn.com/2/72x72/1f6b6.png">
+        <img class="emoji" draggable="false" alt="🏃" src="https://twemoji.maxcdn.com/2/72x72/1f3c3.png">
+        <img class="emoji" draggable="false" alt="💃" src="https://twemoji.maxcdn.com/2/72x72/1f483.png">
+        <img class="emoji" draggable="false" alt="👯" src="https://twemoji.maxcdn.com/2/72x72/1f46f.png">
+        <img class="emoji" draggable="false" alt="👫" src="https://twemoji.maxcdn.com/2/72x72/1f46b.png">
+        <img class="emoji" draggable="false" alt="👬" src="https://twemoji.maxcdn.com/2/72x72/1f46c.png">
+        <img class="emoji" draggable="false" alt="👭" src="https://twemoji.maxcdn.com/2/72x72/1f46d.png">
+        <img class="emoji" draggable="false" alt="🙇" src="https://twemoji.maxcdn.com/2/72x72/1f647.png">
+        <img class="emoji" draggable="false" alt="💁" src="https://twemoji.maxcdn.com/2/72x72/1f481.png">
+        <img class="emoji" draggable="false" alt="🙅" src="https://twemoji.maxcdn.com/2/72x72/1f645.png">
+        <img class="emoji" draggable="false" alt="🙆" src="https://twemoji.maxcdn.com/2/72x72/1f646.png">
+        <img class="emoji" draggable="false" alt="🙋" src="https://twemoji.maxcdn.com/2/72x72/1f64b.png">
+        <img class="emoji" draggable="false" alt="🙎" src="https://twemoji.maxcdn.com/2/72x72/1f64e.png">
+        <img class="emoji" draggable="false" alt="🙍" src="https://twemoji.maxcdn.com/2/72x72/1f64d.png">
+        <img class="emoji" draggable="false" alt="💇" src="https://twemoji.maxcdn.com/2/72x72/1f487.png">
+        <img class="emoji" draggable="false" alt="💆" src="https://twemoji.maxcdn.com/2/72x72/1f486.png">
+        <img class="emoji" draggable="false" alt="💑" src="https://twemoji.maxcdn.com/2/72x72/1f491.png">
+        <img class="emoji" draggable="false" alt="👩‍❤️‍👩" src="https://twemoji.maxcdn.com/2/72x72/1f469-200d-2764-fe0f-200d-1f469.png">
+        <img class="emoji" draggable="false" alt="👨‍❤️‍👨" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-2764-fe0f-200d-1f468.png">
+        <img class="emoji" draggable="false" alt="💏" src="https://twemoji.maxcdn.com/2/72x72/1f48f.png">
+        <img class="emoji" draggable="false" alt="👩‍❤️‍💋‍👩" src="https://twemoji.maxcdn.com/2/72x72/1f469-200d-2764-fe0f-200d-1f48b-200d-1f469.png">
+        <img class="emoji" draggable="false" alt="👨‍❤️‍💋‍👨" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-2764-fe0f-200d-1f48b-200d-1f468.png">
+        <img class="emoji" draggable="false" alt="👪" src="https://twemoji.maxcdn.com/2/72x72/1f46a.png">
+        <img class="emoji" draggable="false" alt="👨‍👩‍👧" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-1f469-200d-1f467.png">
+        <img class="emoji" draggable="false" alt="👨‍👩‍👧‍👦" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-1f469-200d-1f467-200d-1f466.png">
+        <img class="emoji" draggable="false" alt="👨‍👩‍👦‍👦" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-1f469-200d-1f466-200d-1f466.png">
+        <img class="emoji" draggable="false" alt="👨‍👩‍👧‍👧" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-1f469-200d-1f467-200d-1f467.png">
+        <img class="emoji" draggable="false" alt="👩‍👩‍👦" src="https://twemoji.maxcdn.com/2/72x72/1f469-200d-1f469-200d-1f466.png">
+        <img class="emoji" draggable="false" alt="👩‍👩‍👧" src="https://twemoji.maxcdn.com/2/72x72/1f469-200d-1f469-200d-1f467.png">
+        <img class="emoji" draggable="false" alt="👩‍👩‍👧‍👦" src="https://twemoji.maxcdn.com/2/72x72/1f469-200d-1f469-200d-1f467-200d-1f466.png">
+        <img class="emoji" draggable="false" alt="👩‍👩‍👦‍👦" src="https://twemoji.maxcdn.com/2/72x72/1f469-200d-1f469-200d-1f466-200d-1f466.png">
+        <img class="emoji" draggable="false" alt="👩‍👩‍👧‍👧" src="https://twemoji.maxcdn.com/2/72x72/1f469-200d-1f469-200d-1f467-200d-1f467.png">
+        <img class="emoji" draggable="false" alt="👨‍👨‍👦" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-1f468-200d-1f466.png">
+        <img class="emoji" draggable="false" alt="👨‍👨‍👧" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-1f468-200d-1f467.png">
+        <img class="emoji" draggable="false" alt="👨‍👨‍👧‍👦" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-1f468-200d-1f467-200d-1f466.png">
+        <img class="emoji" draggable="false" alt="👨‍👨‍👦‍👦" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-1f468-200d-1f466-200d-1f466.png">
+        <img class="emoji" draggable="false" alt="👨‍👨‍👧‍👧" src="https://twemoji.maxcdn.com/2/72x72/1f468-200d-1f468-200d-1f467-200d-1f467.png">
+        <img class="emoji" draggable="false" alt="👚" src="https://twemoji.maxcdn.com/2/72x72/1f45a.png">
+        <img class="emoji" draggable="false" alt="👕" src="https://twemoji.maxcdn.com/2/72x72/1f455.png">
+        <img class="emoji" draggable="false" alt="👖" src="https://twemoji.maxcdn.com/2/72x72/1f456.png">
+        <img class="emoji" draggable="false" alt="👔" src="https://twemoji.maxcdn.com/2/72x72/1f454.png">
+        <img class="emoji" draggable="false" alt="👗" src="https://twemoji.maxcdn.com/2/72x72/1f457.png">
+        <img class="emoji" draggable="false" alt="👙" src="https://twemoji.maxcdn.com/2/72x72/1f459.png">
+        <img class="emoji" draggable="false" alt="👘" src="https://twemoji.maxcdn.com/2/72x72/1f458.png">
+        <img class="emoji" draggable="false" alt="💄" src="https://twemoji.maxcdn.com/2/72x72/1f484.png">
+        <img class="emoji" draggable="false" alt="💋" src="https://twemoji.maxcdn.com/2/72x72/1f48b.png">
+        <img class="emoji" draggable="false" alt="👣" src="https://twemoji.maxcdn.com/2/72x72/1f463.png">
+        <img class="emoji" draggable="false" alt="👠" src="https://twemoji.maxcdn.com/2/72x72/1f460.png">
+        <img class="emoji" draggable="false" alt="👡" src="https://twemoji.maxcdn.com/2/72x72/1f461.png">
+        <img class="emoji" draggable="false" alt="👢" src="https://twemoji.maxcdn.com/2/72x72/1f462.png">
+        <img class="emoji" draggable="false" alt="👞" src="https://twemoji.maxcdn.com/2/72x72/1f45e.png">
+        <img class="emoji" draggable="false" alt="👟" src="https://twemoji.maxcdn.com/2/72x72/1f45f.png">
+        <img class="emoji" draggable="false" alt="👒" src="https://twemoji.maxcdn.com/2/72x72/1f452.png">
+        <img class="emoji" draggable="false" alt="🎩" src="https://twemoji.maxcdn.com/2/72x72/1f3a9.png">
+        <img class="emoji" draggable="false" alt="⛑" src="https://twemoji.maxcdn.com/2/72x72/26d1.png">
+        <img class="emoji" draggable="false" alt="🎓" src="https://twemoji.maxcdn.com/2/72x72/1f393.png">
+        <img class="emoji" draggable="false" alt="👑" src="https://twemoji.maxcdn.com/2/72x72/1f451.png">
+        <img class="emoji" draggable="false" alt="🎒" src="https://twemoji.maxcdn.com/2/72x72/1f392.png">
+        <img class="emoji" draggable="false" alt="👝" src="https://twemoji.maxcdn.com/2/72x72/1f45d.png">
+        <img class="emoji" draggable="false" alt="👛" src="https://twemoji.maxcdn.com/2/72x72/1f45b.png">
+        <img class="emoji" draggable="false" alt="👜" src="https://twemoji.maxcdn.com/2/72x72/1f45c.png">
+        <img class="emoji" draggable="false" alt="💼" src="https://twemoji.maxcdn.com/2/72x72/1f4bc.png">
+        <img class="emoji" draggable="false" alt="👓" src="https://twemoji.maxcdn.com/2/72x72/1f453.png">
+        <img class="emoji" draggable="false" alt="🕶" src="https://twemoji.maxcdn.com/2/72x72/1f576.png">
+        <img class="emoji" draggable="false" alt="💍" src="https://twemoji.maxcdn.com/2/72x72/1f48d.png">
+        <img class="emoji" draggable="false" alt="🌂" src="https://twemoji.maxcdn.com/2/72x72/1f302.png">
       </div>
     </aside>
   </div>

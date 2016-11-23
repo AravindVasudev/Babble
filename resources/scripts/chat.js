@@ -7,12 +7,13 @@ $('form').submit(function(){
   return false;
 });
 socket.on('chat message', function(msg){
+  let mojifiedMsg = twemoji.parse(msg.msg);
   let message = "";
   if(msg.id == $('#userid').val()) {
-    message = `<div class="message-me"><span class="msg">${msg.msg}</span><span class="time noselect">${msg.time}</span></div>`;
+    message = `<div class="message-me"><span class="msg">${mojifiedMsg}</span><span class="time noselect">${msg.time}</span></div>`;
   }
   else {
-    message = `<div class="message"><span class="username noselect">${msg.name}</span><span class="msg">${msg.msg}</span><span class="time noselect">${msg.time}</span></div>`;
+    message = `<div class="message"><span class="username noselect">${msg.name}</span><span class="msg">${mojifiedMsg}</span><span class="time noselect">${msg.time}</span></div>`;
   }
   audio.play();
   navigator.vibrate(100);
@@ -70,12 +71,12 @@ socket.on('leave', function(msg){
 $(function() {
   $('.emoji').click(function() {
     let $box = $('#type-message');
-    $box.val(`${$box.val()}${$(this).text()}`);
+    $box.val(`${$box.val()}${$(this).attr('alt')}`);
     $box.focus();
   });
 
   $( ".emoji" ).contextmenu(function() {
-    socket.emit('chat message', `<span class="memoji">${$(this).text()}</span>`);
+    socket.emit('chat message', `${$(this).attr('alt')}`);
     return false;
   });
 

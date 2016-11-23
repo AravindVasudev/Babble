@@ -6,6 +6,7 @@ module.exports = (io) => {
   const hbs      = require('hbs');
   const shortid  = require('shortid');
   const escape   = require('escape-html');
+  const twemoji  = require('twemoji');
 
   //User Model
   const User = require('../models/user.js');
@@ -132,7 +133,10 @@ module.exports = (io) => {
   hbs.registerHelper('areEqual', function(id1, id2, options) {
     if(id1 == id2) return options.fn(this);
     else return options.inverse(this);
+  });
 
+  hbs.registerHelper('twemojify', function(msg) {
+    return new hbs.SafeString(twemoji.parse(msg));
   });
 
   return router;
