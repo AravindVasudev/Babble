@@ -56,30 +56,33 @@ module.exports = (io) => {
     });
 
     socket.on('chat image', function(img) {
-
       let image = decodeBase64Image(img);
-      // console.log(image.type);
-      let name = `${shortid.generate()}.${image.type}`;
+      if(image.type === 'error') {
+        socket.emit('bot', {msg: 'Not an Image!'});
+      }
+      else {
+        let name = `${shortid.generate()}.${image.type}`;
 
-      fs.writeFile(`public/uploads/${name}`, image.data, {encoding: 'binary'}, (err) => {
-        if(err) throw err;
-      });
-
-      let message = {id: socket.request.user.id, name: socket.request.user.displayName, image: `uploads/${name}`, time: formatAMPM(new Date())};
-      io.emit('chat image', message);
-
-      fs.readFile('./models/history.json', 'utf8', (err, data) => {
-        if(err) throw err;
-
-        let history = JSON.parse(data);
-
-        history.history.push(message);
-        history = JSON.stringify(history);
-
-        fs.writeFile('./models/history.json', history, (err) => {
+        fs.writeFile(`public/uploads/${name}`, image.data, {encoding: 'binary'}, (err) => {
           if(err) throw err;
         });
-      });
+
+        let message = {id: socket.request.user.id, name: socket.request.user.displayName, image: `uploads/${name}`, time: formatAMPM(new Date())};
+        io.emit('chat image', message);
+
+        fs.readFile('./models/history.json', 'utf8', (err, data) => {
+          if(err) throw err;
+
+          let history = JSON.parse(data);
+
+          history.history.push(message);
+          history = JSON.stringify(history);
+
+          fs.writeFile('./models/history.json', history, (err) => {
+            if(err) throw err;
+          });
+        });
+      }
     });
 
     socket.on('disconnect', function () {
@@ -102,16 +105,22 @@ module.exports = (io) => {
     var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
     response = {};
 
-    if (matches.length !== 3) {
-      return new Error('Invalid input string');
+    if (!matches || matches.length !== 3) {
+      response.type = 'error';
+      return response;
     }
 
     if(matches[1] === 'image/png') {
       response.type = 'png';
     }
-    else {
+    else if(matches[1] === 'image/jpeg') {
       response.type = 'jpg';
     }
+    else {
+      response.type = 'error';
+      return response;
+    }
+
 
     response.data = new Buffer(matches[2], 'base64');
 

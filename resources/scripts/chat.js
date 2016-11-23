@@ -47,6 +47,13 @@ socket.on('join', function(msg){
   $(".messages").scrollTop($(".messages").children().height());
 });
 
+socket.on('bot', function(msg){
+  let message = `<div class="message-bot noselect"><kbd>${msg.msg}</kbd></div>`;
+
+  $('#messages').append(message);
+  $(".messages").scrollTop($(".messages").children().height());
+});
+
 socket.on('leave', function(msg){
   let message = '';
   if(msg.id == $('#userid').val()) {
@@ -80,20 +87,29 @@ $(function() {
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
   });
 
+
+    var fileTypes = ['jpg', 'jpeg', 'png'];
     //Send Image
     $('#file').change(function() {
       var image  = this.files[0];
-      // var preview = document.getElementById('test');
 
-      var reader = new FileReader();
+      var ext = image.name.split('.').pop().toLowerCase();
 
-      reader.addEventListener("load", function () {
-        // preview.src = reader.result;
-        socket.emit('chat image', reader.result);
-      }, false);
+      if(fileTypes.indexOf(ext) > -1) {
+        var reader = new FileReader();
 
-      if (file) {
-        reader.readAsDataURL(image);
+        reader.addEventListener("load", function () {
+          // preview.src = reader.result;
+          socket.emit('chat image', reader.result);
+        }, false);
+
+        if (file) {
+          reader.readAsDataURL(image);
+        }
+      }
+      else {
+        $('#messages').append(`<div class="message-bot noselect"><kbd>Not an Image!</kbd></div>`);
+        $(".messages").scrollTop($(".messages").children().height());
       }
     });
 
