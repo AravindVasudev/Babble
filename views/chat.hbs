@@ -1,6 +1,16 @@
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 
 <input type="hidden" id="userid" value="{{user.id}}">
+
+<ul class="dropdown-menu context-menu">
+  <li>
+    <input type="file" name="file" id="file" class="visuallyhidden" accept="image/*">
+    <label for="file">UPLOAD PIC</label>
+  </li>
+  <li><a href="https://github.com/AravindVasudev/Babble.gq" target="_blank">FORK ME</a></li>
+  <li><a href="/auth/logout">LOGOUT</a></li>
+</ul>
+
 <div class="app-container">
   <header class="app-header noselect">
     <div class="app-header-content">
@@ -23,7 +33,7 @@
       </div>
 
 
-      <h1>babble chat</h1>
+      <h1>babble</h1>
     </div>
   </header>
   <div class="row no-gutter app-body">

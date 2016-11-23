@@ -75,6 +75,23 @@ $(function() {
     $box.focus();
   });
 
+  $( "main" ).contextmenu(function(e) {
+    $('.context-menu').css({
+      left: e.pageX,
+      top: e.pageY
+    });
+    $('.context-menu').hide();
+    $('.context-menu').slideDown(300);
+
+    return false;
+  });
+
+  $( "main" ).click(function(e) {
+    $('.context-menu').slideUp(300);
+
+    return false;
+  });
+
   $( ".emoji" ).contextmenu(function() {
     socket.emit('chat message', `${$(this).attr('alt')}`);
     return false;

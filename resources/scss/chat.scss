@@ -4,6 +4,7 @@
 body {
   background: $highlightBackground;
   font-family: $droid-sans;
+  overflow: hidden;
 }
 
 .row.no-gutter {
@@ -265,26 +266,29 @@ justify-content: center;
     transform: rotate(45deg) translate(-8px, -8px) ;
 }
 
+.dropdown-menu {
+  border-radius: 0;
+  position: absolute;
+  display:none;
+
+  li > label {
+    display: inline-block;
+    width: 100%;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  li > a, li > label {
+    padding: 10px 20px;
+  }
+
+  li > a:hover, li > label:hover {
+    background-color: $highlight;
+    color: white;
+  }
+}
+
 .dropdown {
   display: inline;
-
-  .dropdown-menu {
-    border-radius: 0;
-    li > label {
-      display: inline-block;
-      width: 100%;
-      font-weight: normal;
-      cursor: pointer;
-    }
-    li > a, li > label {
-      padding: 10px 20px;
-    }
-
-    li > a:hover, li > label:hover {
-      background-color: $highlight;
-      color: white;
-    }
-  }
 }
 
 .noselect {
