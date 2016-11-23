@@ -1,7 +1,7 @@
 var socket = io();
 var audio = new Audio('media/chat.mp3');
 $('form').submit(function(){
-  if($('#type-message').val() === '') return false;
+  if($('#type-message').val().trim() === '') return false;
   socket.emit('chat message', $('#type-message').val());
   $('#type-message').val('');
   return false;

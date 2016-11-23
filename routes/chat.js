@@ -38,8 +38,10 @@ module.exports = (io) => {
     io.emit('join', { id: socket.request.user.id, user: socket.request.user.displayName });
 
     socket.on('chat message', function(msg){
-      if(!!msg) {
+
+      if(!!msg.trim()) {
         let clean_msg = escape(msg);
+
         let message = {id: socket.request.user.id, name: socket.request.user.displayName, msg: clean_msg, time: formatAMPM(new Date())};
         io.emit('chat message', message);
 
