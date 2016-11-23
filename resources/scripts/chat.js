@@ -75,7 +75,7 @@ $(function() {
     $box.focus();
   });
 
-  $( "main" ).contextmenu(function(e) {
+  $( ".messages" ).contextmenu(function(e) {
     $('.context-menu').css({
       left: e.pageX,
       top: e.pageY
@@ -86,7 +86,7 @@ $(function() {
     return false;
   });
 
-  $( "main" ).click(function(e) {
+  $( ".messages" ).click(function(e) {
     $('.context-menu').slideUp(300);
 
     return false;
