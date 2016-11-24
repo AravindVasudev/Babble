@@ -17,6 +17,7 @@ Check it out: [babble.gq](http://babble.gq/)
 ## Features<a name="features"></a>
   * Responsive Interface
   * Web Sockets for Communication using Socket.io
+  * Emma - A simple bot that returns wikipedia result when invoked with `@emma`.
   * Secure OAuth Authetication with Facebook using Passport
   * Emoji Column for easy inclusive of emojis (right click triggers larger emoji)
   * Image Upload Functionality
