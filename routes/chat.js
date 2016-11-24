@@ -72,10 +72,17 @@ module.exports = (io) => {
 
               resBody = JSON.parse(resBody);
 
-              let title = resBody.query.search[0].title;
-              let body  = resBody.query.search[0].snippet;
+              let b_data = '';
 
-              let b_data = `<a href="${wikipediaLink}${title}" target="_blank">${title}</a> - ${body}`;
+              if(!resBody.query.searchinfo.totalhits) {
+                b_data = `Nothing Found! 🙁`;
+              }
+              else {
+                let title = resBody.query.search[0].title;
+                let body  = resBody.query.search[0].snippet;
+
+                b_data = `<a href="${wikipediaLink}${title}" target="_blank">${title}</a> - ${body}`;
+              }
 
               bot_message = {id: 'bot', name: 'Emma(bot)', msg: b_data, time: formatAMPM(new Date())};
               io.emit('chat message', bot_message);
