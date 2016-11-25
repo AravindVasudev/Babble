@@ -56,7 +56,7 @@ module.exports = (io) => {
         if(clean_msg.match(/^@emma/i)) {
           let bot_message = {};
 
-          let query = clean_msg.replace('@emma', '');
+          let query = clean_msg.replace('@emma', '').trim();
 
           let wikipediaSearchURL = wikipediaAPILink + query;
 
@@ -74,7 +74,7 @@ module.exports = (io) => {
 
               let b_data = '';
 
-              if(!resBody.query.searchinfo.totalhits) {
+              if(!query || !resBody.query.searchinfo.totalhits) {
                 b_data = `Nothing Found! 🙁`;
               }
               else {
