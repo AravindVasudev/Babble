@@ -174,11 +174,12 @@ $(function() {
   });
 });
 
-function notify(title, body, image, user) {
-  if(Notification.permission === 'granted' && !document.hasFocus() && !user) {
+function notify(title, body, image, permission) {
+  if(Notification.permission === 'granted' && !document.hasFocus() && !permission) {
     let n = new Notification(title, {
       body: body,
-      image: image
+      image: image,
+      tag: title
     });
     n.addEventListener('click', function() {
       window.focus();
