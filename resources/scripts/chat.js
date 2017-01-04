@@ -178,7 +178,7 @@ function notify(title, body, image, permission) {
   if(Notification.permission === 'granted' && !document.hasFocus() && !permission) {
     let n = new Notification(title, {
       body: body,
-      image: image,
+      icon: image,
       tag: title
     });
     n.addEventListener('click', function() {
