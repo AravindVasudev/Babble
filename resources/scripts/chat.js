@@ -17,6 +17,7 @@ socket.on('chat message', function(msg){
   }
   audio.play();
   navigator.vibrate(100);
+  notify(msg.name, msg.msg, msg.photo, msg.id == $('#userid').val());
   $('#messages').append(message);
   $(".messages").scrollTop($(".messages").children().height());
 });
@@ -31,6 +32,7 @@ socket.on('chat image', function(msg) {
   }
   audio.play();
   navigator.vibrate(100);
+  notify(msg.name, 'Photo', msg.photo, msg.id == $('#userid').val());
   $('#messages').append(message);
   $(".messages").scrollTop($(".messages").children().height());
 });
@@ -69,6 +71,17 @@ socket.on('leave', function(msg){
 
 
 $(function() {
+  if(!("Notification" in window)) {
+    console.warn('Please update your browser for enable Web Notification.');
+  }
+  else if(Notification.permission === 'default') {
+    Notification.requestPermission(function(result) {
+      if(result === 'granted') {
+        notify('Babble.gq', 'Notification has been enabled', '/img/logo.png');
+      }
+    });
+  }
+
   $('.emoji').click(function() {
     let $box = $('#type-message');
     $box.val(`${$box.val()}${$(this).attr('alt')}`);
@@ -160,3 +173,16 @@ $(function() {
     toggleFullscreen(this);
   });
 });
+
+function notify(title, body, image, user) {
+  if(Notification.permission === 'granted' && !document.hasFocus() && !user) {
+    let n = new Notification(title, {
+      body: body,
+      image: image
+    });
+    n.addEventListener('click', function() {
+      window.focus();
+      n.close();
+    });
+  }
+}

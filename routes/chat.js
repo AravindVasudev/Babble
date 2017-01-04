@@ -49,7 +49,7 @@ module.exports = (io) => {
 
         let clean_msg = escape(msg);
 
-          message = {id: socket.request.user.id, name: socket.request.user.displayName, msg: clean_msg, time: formatAMPM(new Date())};
+          message = {id: socket.request.user.id, name: socket.request.user.displayName, msg: clean_msg, time: formatAMPM(new Date()), photo: socket.request.user.photo};
 
         io.emit('chat message', message);
 
@@ -135,7 +135,7 @@ module.exports = (io) => {
           if(err) throw err;
         });
 
-        let message = {id: socket.request.user.id, name: socket.request.user.displayName, image: `uploads/${name}`, time: formatAMPM(new Date())};
+        let message = {id: socket.request.user.id, name: socket.request.user.displayName, image: `uploads/${name}`, time: formatAMPM(new Date()), photo: socket.request.user.photo};
         io.emit('chat image', message);
 
         fs.readFile('./models/history.json', 'utf8', (err, data) => {
