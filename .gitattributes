@@ -1,0 +1,3 @@
+public/css/* linguist-vendored
+public/js/* linguist-vendored
+views/chat.hbs linguist-vendored
