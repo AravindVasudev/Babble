@@ -27,11 +27,13 @@ Check it out: [babble.gq](http://babble.gq/)
 
 ## Installation <a name="installation"></a>
   1. Clone or Download the repository
+
     ```
     $ git clone https://github.com/AravindVasudev/Babble.gq.git
     $ cd Babble.gq
     ```
   2. Install Dependencies
+
     ```
     $ npm install
     ```
@@ -40,10 +42,12 @@ Check it out: [babble.gq](http://babble.gq/)
   4. Download and Install MongoDB
 
   5. Run Mongo DB Server
+
   ```
   $ mongod
   ```
   6. Start the Application
+  
   ```
   $ npm start
   ```
